@@ -13,7 +13,7 @@ This package provides a custom `snowflake.ID` type which has various utility met
 ### Installing
 
 ```sh
-go get github.com/disgoorg/snowflake/v2
+go get github.com/snekROmonoro/snowflake
 ```
 
 ## Usage
@@ -60,3 +60,5 @@ id := MustParse("123456789012345678")
 ## License
 
 Distributed under the [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/disgoorg/snowflake/blob/master/LICENSE). See LICENSE for more information.
+
+Forked from disgo's snowflake.

@@ -67,7 +67,7 @@ type ID uint64
 
 // MarshalJSON marshals the snowflake ID into a JSON string.
 func (id ID) MarshalJSON() ([]byte, error) {
-	return []byte(strconv.Quote(strconv.FormatUint(uint64(id), 10))), nil
+	return []byte(strconv.FormatUint(uint64(id), 10)), nil
 }
 
 // UnmarshalJSON unmarshals the snowflake ID from a JSON string.
@@ -75,10 +75,7 @@ func (id *ID) UnmarshalJSON(data []byte) error {
 	if bytes.Equal(data, nullBytes) || bytes.Equal(data, zeroBytes) {
 		return nil
 	}
-	snowflake, err := strconv.Unquote(string(data))
-	if err != nil {
-		return fmt.Errorf("failed to unquote snowflake: %w", err)
-	}
+	snowflake := string(data)
 	i, err := strconv.ParseUint(snowflake, 10, 64)
 	if err != nil {
 		return fmt.Errorf("failed to parse snowflake as uint64: %w", err)
